@@ -3,10 +3,10 @@ Building off [this great project](https://github.com/cstobey/vclods), we add [Do
 
 ### To use
 1. Have Docker Desktop installed on your system
-2. Clone the repo (`git clone ... `) with the submodule (vclods)
+2. Clone the repo with the submodule (`git clone --recursive git@github.com:joshurbain/vclods-docker.git`)
 3. Place your files in the `vclods` folder
-3. Build the instance (shown below)
-4. Either open a shell and use VCLODs directly or run the container (also shown below)
+4. Build the instance (shown below)
+5. Either open a shell and use VCLODs directly or run the container (also shown below)
 
 
 ### Build an instance
