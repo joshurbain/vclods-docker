@@ -1,5 +1,5 @@
 # Docker-based Variable Configuration Locking Operation Destination Scripts `ksh` Framework (VCLODS)
-Building off this great project, we add [Docker](https://www.docker.com/get-started/) containerization to the project for quick development and security purposes.
+Building off [this great project](https://github.com/cstobey/vclods), we add [Docker](https://www.docker.com/get-started/) containerization to the project for quick development and security purposes.
 
 ### To use
 1. Have Docker Desktop installed on your system
