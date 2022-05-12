@@ -4,6 +4,9 @@ RUN yum -y update && yum clean all && \
     yum install -y python3 git findutils gettext ksh mysql which rsyslog sudo passwd logrotate && \
     curl https://bootstrap.pypa.io/pip/3.6/get-pip.py | python3
 
+# Install jq
+RUN yum install -y epel-release && yum install -y jq
+
 # Install SQL Server tools (SQLCMD)
 RUN curl -o /etc/yum.repos.d/msprod.repo https://packages.microsoft.com/config/rhel/8/prod.repo && \
     ACCEPT_EULA=Y yum install -y mssql-tools unixODBC-devel && \
