@@ -38,7 +38,7 @@ LOG_BASE_DIR=/tmp/\n\
 # @USER_TODO: Setup your connection information here
 RUN printf """\n\
 VCLOD_ENGINE=mysql\n\
-VCLOD_HOST=172.20.0.2\n\
+VCLOD_HOST=host.docker.internal\n\
 VCLOD_USER=root\n\
 VCLOD_PASSWORD=r3@llyl4m3p@55w0rd\n\
 VCLOD_DB=information_schema\n\

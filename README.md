@@ -5,8 +5,8 @@ Building off [this great project](https://github.com/cstobey/vclods), we add [Do
 1. Have Docker Desktop installed on your system
 2. Clone the repo with the submodule (`git clone --recursive git@github.com:joshurbain/vclods-docker.git`)
 3. Place your files in the `vclods` folder
-4. Build the instance (shown below)
-5. Either open a shell and use VCLODs directly or run the container (also shown below)
+4. Build the instance and container (shown below)
+5. Open a shell and use VCLODs directly (shown below) or run the container
 
 
 ### Build an instance
@@ -19,18 +19,18 @@ docker build --tag vclods:1.0 .
 ```
 
 
-### Open a shell into the container
-```
-docker exec -ti vclod /bin/bash
-```
-
-
-### Run the container
+### Build the container
 ```
 docker container run -itd --name vclod vclods:1.0
 
 # or if you have a specific network to attach to the container
 docker container run -itd --network=mariadb-network --name vclod vclods:1.0
+```
+
+
+### Open a shell into the container
+```
+docker exec -ti vclod /bin/bash
 ```
 
 
