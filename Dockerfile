@@ -5,7 +5,7 @@ RUN yum -y update && yum clean all && \
     curl https://bootstrap.pypa.io/pip/3.6/get-pip.py | python3
 
 # Install jq
-RUN yum install -y epel-release && yum install -y jq
+#RUN yum install -y epel-release && yum install -y jq
 
 # Install SQL Server tools (SQLCMD)
 RUN curl -o /etc/yum.repos.d/msprod.repo https://packages.microsoft.com/config/rhel/8/prod.repo && \
