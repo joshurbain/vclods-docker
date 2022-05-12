@@ -1,4 +1,4 @@
-# Docker-based Variable Configuration Locking Operation Destination Scripts `ksh` Framework (VCLODS)
+# Docker-based VCLODS (Variable Configuration Locking Operation Destination Scripts `ksh` Framework)
 Building off [this great project](https://github.com/cstobey/vclods), we add [Docker](https://www.docker.com/get-started/) containerization to the project for quick development and security purposes.
 
 ### To use
