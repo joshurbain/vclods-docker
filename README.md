@@ -21,19 +21,19 @@ docker build --tag vclods:1.0 .
 
 ### Build the container
 ```
-docker container run -itd --name vclod vclods:1.0
+docker container run -i -t -d --name vclod vclods:1.0
 
 # or if you have a specific network to attach to the container
-docker container run -itd --network=mariadb-network --name vclod vclods:1.0
+docker container run -i -t -d --network=mariadb-network --name vclod vclods:1.0
 ```
 
 
 ### Open a shell into the container
 ```
-docker exec -ti vclod /bin/bash
+docker exec -it vclod /bin/bash
 ```
 
 
 ### Suggestions
 1. Add a Docker network to share with this instance (as seen with `mariadb-network`)
-2. Have aliases or scripts that do the steps above
+2. Have aliases or scripts that do the steps above (or just use the `full_build.sh` script)

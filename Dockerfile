@@ -1,16 +1,16 @@
 FROM centos:7
 
 RUN yum -y update && yum clean all && \
-    yum install -y python3 git findutils gettext ksh mysql which rsyslog sudo passwd logrotate && \
+    yum install -y python3 git findutils gettext ksh mysql which rsyslog sudo passwd logrotate epel-release && \
     curl https://bootstrap.pypa.io/pip/3.6/get-pip.py | python3
-
-# Install jq
-#RUN yum install -y epel-release && yum install -y jq
 
 # Install SQL Server tools (SQLCMD)
 RUN curl -o /etc/yum.repos.d/msprod.repo https://packages.microsoft.com/config/rhel/8/prod.repo && \
     ACCEPT_EULA=Y yum install -y mssql-tools unixODBC-devel && \
     ln -s /opt/mssql-tools/bin/sqlcmd /usr/local/bin/sqlcmd
+
+# Install jq (EPEL is required for this)
+RUN yum install -y jq
 
 # Setup syslogd
 COPY rsyslog.conf /etc/rsyslog.conf
