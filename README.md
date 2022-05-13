@@ -4,9 +4,10 @@ Building off [this great project](https://github.com/cstobey/vclods), we add [Do
 ### To use
 1. Have Docker Desktop installed on your system
 2. Clone the repo with the submodule (`git clone --recursive git@github.com:joshurbain/vclods-docker.git`)
-3. Place your files in the `vclods` folder
+3. Place your files in the `scripts` folder
 4. Build the instance and container (shown below)
-5. Open a shell and use VCLODs directly (shown below) or run the container
+5. Open a shell and use VCLODs directly (shown below)
+6. Change the files in the scripts folder and it will change in your docker instance, as well
 
 
 ### Build an instance
@@ -21,10 +22,10 @@ docker build --tag vclods:1.0 .
 
 ### Build the container
 ```
-docker container run -i -t -d --name vclod vclods:1.0
+docker container run -i -t -d -v $(realpath ./scripts):/app/scripts --name vclod vclods:1.0
 
 # or if you have a specific network to attach to the container
-docker container run -i -t -d --network=mariadb-network --name vclod vclods:1.0
+docker container run -i -t -d -v $(realpath ./scripts):/app/scripts --network=mariadb-network --name vclod vclods:1.0
 ```
 
 

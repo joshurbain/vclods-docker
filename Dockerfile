@@ -12,9 +12,8 @@ RUN curl -o /etc/yum.repos.d/msprod.repo https://packages.microsoft.com/config/r
 # Install jq (EPEL is required for this)
 RUN yum install -y jq
 
-# Setup syslogd
-COPY rsyslog.conf /etc/rsyslog.conf
-RUN rsyslogd
+# Setup rsyslogd (to do nothing)
+RUN touch /etc/rsyslog.conf && rsyslogd
 
 WORKDIR /app
 ADD ./vclods /app
