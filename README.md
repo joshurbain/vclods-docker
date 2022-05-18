@@ -44,10 +44,10 @@ docker pull mariadb:10.3
 # Create the network
 docker network create mariadb-network
 
-# Run the container
-docker run --name mitelsync-mariadb -p 127.0.0.1:3306:3306/tcp --network=mariadb-network -e MYSQL_ROOT_PASSWORD=l4m3p@55w0rd2021 -d mariadb:10.3 --max_allowed_packet=1073741824
+# Run the container (feel free to change password accordingly)
+docker run --name mariadb -p 127.0.0.1:3306:3306/tcp --network=mariadb-network -e MYSQL_ROOT_PASSWORD=r3@llyl4m3p@55w0rd -d mariadb:10.3 --max_allowed_packet=1073741824
 # Or you can run the container without the local binding (more secure)
-# docker run --name mitelsync-mariadb --network=mariadb-network -e MYSQL_ROOT_PASSWORD=l4m3p@55w0rd2021 -d mariadb:10.3 --max_allowed_packet=1073741824
+# docker run --name mariadb --network=mariadb-network -e MYSQL_ROOT_PASSWORD=r3@llyl4m3p@55w0rd -d mariadb:10.3 --max_allowed_packet=1073741824
 ```
 
 2. Have aliases or scripts that automate the steps above (or just use the `full_build.sh` script 😉).
