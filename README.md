@@ -36,5 +36,18 @@ docker exec -it vclod /bin/bash
 
 
 ### Suggestions
-1. Add a Docker network to share with this instance (as seen with `mariadb-network`)
-2. Have aliases or scripts that do the steps above (or just use the `full_build.sh` script)
+1. Add a Docker network to share with this instance (as seen with `mariadb-network`). For example, to create a MariaDB database instance, you could use the following procedure:
+```
+# Pull down the image
+docker pull mariadb:10.3
+
+# Create the network
+docker network create mariadb-network
+
+# Run the container
+docker run --name mitelsync-mariadb -p 127.0.0.1:3306:3306/tcp --network=mariadb-network -e MYSQL_ROOT_PASSWORD=l4m3p@55w0rd2021 -d mariadb:10.3 --max_allowed_packet=1073741824
+# Or you can run the container without the local binding (more secure)
+# docker run --name mitelsync-mariadb --network=mariadb-network -e MYSQL_ROOT_PASSWORD=l4m3p@55w0rd2021 -d mariadb:10.3 --max_allowed_packet=1073741824
+```
+
+2. Have aliases or scripts that automate the steps above (or just use the `full_build.sh` script 😉).
