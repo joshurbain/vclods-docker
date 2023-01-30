@@ -1,3 +1,4 @@
 [submodule "vclods"]
 	path = vclods
 	url = git@github.com:cstobey/vclods.git
+	branch = master
