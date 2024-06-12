@@ -1,7 +1,7 @@
 FROM centos:7
 
 RUN yum -y update && yum clean all && \
-    yum install -y python3 git findutils gettext ksh mysql which rsyslog sudo passwd logrotate epel-release && \
+    yum install -y python3 git findutils gettext ksh mysql which rsyslog sudo passwd logrotate postgresql epel-release && \
     curl https://bootstrap.pypa.io/pip/3.6/get-pip.py | python3
 
 # Install SQL Server tools (SQLCMD)
@@ -18,8 +18,8 @@ RUN touch /etc/rsyslog.conf && rsyslogd
 WORKDIR /app
 ADD ./vclods /app
 
-RUN /app/install
-RUN chmod +x /app/run_tests.sh
+RUN chmod +x /app/INSTALL.sh /app/run_tests.sh
+RUN /app/INSTALL.sh
 
 RUN touch /app/test/secure_config
 
