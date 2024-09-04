@@ -1,22 +1,28 @@
-FROM centos:7
+FROM oraclelinux:8
 
-RUN yum -y update && yum clean all && \
-    yum install -y python3 git findutils gettext ksh mysql which rsyslog sudo passwd logrotate postgresql epel-release && \
-    curl https://bootstrap.pypa.io/pip/3.6/get-pip.py | python3
+RUN dnf -y update && dnf clean all && \
+    dnf install -y python3 python3-pip git findutils gettext ksh mysql which rsyslog sudo passwd \
+                   logrotate postgresql psmisc epel-release
 
 # Install SQL Server tools (SQLCMD)
 RUN curl -o /etc/yum.repos.d/msprod.repo https://packages.microsoft.com/config/rhel/8/prod.repo && \
-    ACCEPT_EULA=Y yum install -y mssql-tools unixODBC-devel && \
+    ACCEPT_EULA=Y dnf install -y mssql-tools unixODBC-devel && \
     ln -s /opt/mssql-tools/bin/sqlcmd /usr/local/bin/sqlcmd
 
 # Install jq (EPEL is required for this)
-RUN yum install -y jq
+RUN dnf install -y jq
 
 # Setup rsyslogd (to do nothing)
 RUN touch /etc/rsyslog.conf && rsyslogd
 
 WORKDIR /app
 ADD ./vclods /app
+
+# Install Oracle Instant Client and SQL*Plus
+RUN dnf install -y oracle-instantclient-release-el8 && \
+    dnf install -y oracle-instantclient-basic oracle-instantclient-sqlplus oracle-instantclient-tools && \
+    ln -s /usr/lib/oracle/21/client64/lib/network/admin /app/oracle_config
+ENV PATH="/usr/lib/oracle/21/client64/bin:$PATH"
 
 RUN chmod +x /app/INSTALL.sh /app/run_tests.sh
 RUN /app/INSTALL.sh

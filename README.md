@@ -26,6 +26,9 @@ docker container run -i -t -d -v $(realpath ./scripts):/app/scripts --name vclod
 
 # or if you have a specific network to attach to the container
 docker container run -i -t -d -v $(realpath ./scripts):/app/scripts --network=mariadb-network --name vclod vclods:1.0
+
+# or if you want to use Oracle-specific networking
+docker container run -i -t -d -v $(realpath ./scripts):/app/scripts -v $(realpath ./oracle_config):/app/oracle_config --name vclod vclods:1.0
 ```
 
 
