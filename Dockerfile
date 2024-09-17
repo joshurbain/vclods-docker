@@ -2,7 +2,7 @@ FROM oraclelinux:8
 
 RUN dnf -y update && dnf clean all && \
     dnf install -y python3 python3-pip git findutils gettext ksh mysql which rsyslog sudo passwd \
-                   logrotate postgresql psmisc epel-release
+                   logrotate postgresql psmisc sshpass epel-release
 
 # Install SQL Server tools (SQLCMD)
 RUN curl -o /etc/yum.repos.d/msprod.repo https://packages.microsoft.com/config/rhel/8/prod.repo && \
