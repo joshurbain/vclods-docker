@@ -53,5 +53,8 @@ VCLOD_DB=information_schema\n\
 OPERATIONS_EMAIL=[your-email-here]\n\
 """ >> /etc/vclods
 
+# Allow cleartext passwords for legacy connections
+ENV LIBMYSQL_ENABLE_CLEARTEXT_PLUGIN=y
+
 ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["vclods"]
