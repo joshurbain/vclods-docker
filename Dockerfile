@@ -15,7 +15,7 @@ RUN dnf install -y jq
 # Setup rsyslogd (to do nothing)
 RUN touch /etc/rsyslog.conf && rsyslogd
 
-WORKDIR /app
+WORKDIR /app/scripts
 ADD ./vclods /app
 
 # Install Oracle Instant Client and SQL*Plus
