@@ -40,6 +40,7 @@ RUN useradd -m -s /bin/bash -G wheel vclods && \
 RUN chown vclods:root -R /app
 
 RUN printf """\
+VCLOD_USE_CGROUP=0\n\
 VCLOD_LOCK_DIR=/dev/shm/\n\
 VCLOD_ERR_DIR=/dev/shm/\n\
 LOG_BASE_DIR=/tmp/\n\
