@@ -45,7 +45,7 @@ ENV VCLOD_HOST=host.docker.internal
 ENV VCLOD_USER=root
 ENV VCLOD_PASSWORD=r3@llyl4m3p@55w0rd
 ENV VCLOD_DB=information_schema
-ENV OPERATIONS_EMAIL=""
+ENV OPERATIONS_EMAIL="username@example.com"
 
 # Allow cleartext passwords for legacy connections
 ENV LIBMYSQL_ENABLE_CLEARTEXT_PLUGIN=y
